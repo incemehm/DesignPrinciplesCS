@@ -10,6 +10,9 @@ namespace SingleResponsibilityPrincipleIncorrect
     {
         static void Main(string[] args)
         {
+            BackendDeveloper developer = new BackendDeveloper();
+            developer.DevelopWebPage();
+            developer.DesignWebPage();
         }
     }
 }
