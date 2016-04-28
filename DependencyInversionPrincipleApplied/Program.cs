@@ -10,6 +10,14 @@ namespace DependencyInversionPrincipleApplied
     {
         static void Main(string[] args)
         {
+            Musluk musluk = new Musluk();
+            PetSise sise = new PetSise();
+            musluk.Doldur(sise, 100);
+
+            CamSise camSise = new CamSise();
+            musluk.Doldur(camSise, 50); 
+            // Artık cam şişe de doldurabiliyoruz
+            // Musluk sınıfını, şişe sınıflarına daha az bağımlı hale getirdik
         }
     }
 }
