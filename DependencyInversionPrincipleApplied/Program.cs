@@ -1,23 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DependencyInversionPrincipleApplied
+﻿namespace DependencyInversionPrincipleApplied
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Musluk musluk = new Musluk();
-            PetSise sise = new PetSise();
-            musluk.Doldur(sise, 100);
+            Toy toy = new Toy();
+            ZincCarbonBattery zincCarbonBattery = new ZincCarbonBattery();
+            toy.UseBattery(zincCarbonBattery);
 
-            CamSise camSise = new CamSise();
-            musluk.Doldur(camSise, 50); 
-            // Artık cam şişe de doldurabiliyoruz
-            // Musluk sınıfını, şişe sınıflarına daha az bağımlı hale getirdik
+            AlcalineBattery alcalineBattery = new AlcalineBattery();
+            toy.UseBattery(alcalineBattery);
+            // Now we can use alcaline battery
+            // Toy class, is Loosely coupled to ZincCarbonBattery and AlcalineBattery classes
+
+            /* But if we want to use a kind of third battery?
+            *  We can create a new class that implements IBattery interface.
+            *  Then we can use new battery with toy just by calling UseBattery method.
+            *  We dont have to make any arrangement in Toy class.
+            *  This is what we want.
+            */
         }
     }
 }

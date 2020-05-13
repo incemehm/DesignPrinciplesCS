@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OpenClosedPrincipleApplied
+﻿namespace OpenClosedPrincipleApplied
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Write(new A3());
-            Write(new A4());
+            Write(new A3Paper());
+            Write(new A4Paper());
         }
 
         private static void Write(IPaper paper)
         {
             paper.Write();
-        } 
+
+            /* Write method is loosely coupled to A3Paper and A4Paper now. 
+             * It's closed to change but open to development. 
+             * When new paper type such as A5Paper is included in project, we dont have to write if statement.
+             * This is what exactly we want.
+             */
+        }
     }
 }

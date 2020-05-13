@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SingleResponsibilityPrincipleIncorrect
+﻿namespace SingleResponsibilityPrincipleIncorrect
 {
     class Program
     {
         static void Main(string[] args)
         {
-            BackendDeveloper developer = new BackendDeveloper();
-            developer.DevelopWebPage();
-            developer.DesignWebPage();
+            Developer developer = new Developer();
+            developer.CreateAPI();
+            developer.DesignPage();
+
+            /* It breaks Single Responsibility principle.
+             * Developer has to do two unrelated jobs.
+             */
         }
     }
 }

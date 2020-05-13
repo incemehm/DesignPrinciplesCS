@@ -41,15 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICalgi.cs" />
-    <Compile Include="IUflemeliCalgi.cs" />
-    <Compile Include="IVurmaliCalgi.cs" />
-    <Compile Include="IYayliCalgi.cs" />
+    <Compile Include="Bird.cs" />
+    <Compile Include="Dog.cs" />
+    <Compile Include="Fish.cs" />
+    <Compile Include="IAnimal.cs" />
+    <Compile Include="ISwimmable.cs" />
+    <Compile Include="IFlyable.cs" />
+    <Compile Include="IWalkable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UflemeliCalgi.cs" />
-    <Compile Include="VurmaliCalgi.cs" />
-    <Compile Include="YayliCalgi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

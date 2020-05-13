@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LiskovSubstitutionPrincipleApplied
 {
@@ -10,32 +6,40 @@ namespace LiskovSubstitutionPrincipleApplied
     {
         static void Main(string[] args)
         {
-            List<ITemelYetki> temelKullanicilar = new List<ITemelYetki>
+            List<IReadUser> readUsers = new List<IReadUser>
                           {
-                             new Admin(),
-                             new Kullanici(),
-                             new Kullanici()
+                             new AdminUser(),
+                             new StandartUser()
                           };
 
-            List<IYuksekYetki> yetkililer = new List<IYuksekYetki>
-                          {
-                             new Admin(),
-                             new Admin()
+
+            List<IWriteUser> writeUsers = new List<IWriteUser>
+                          {             
+                             new AdminUser(),
+                             new AdminUser()
                           };
 
-            Sorgula(temelKullanicilar);
-            IslemYap(yetkililer);
+            Query(readUsers);
+            Operate(writeUsers);
         }
 
-        static void Sorgula(List<ITemelYetki> kullanicilar)
+        static void Query(List<IReadUser> users)
         {
-            kullanicilar.ForEach(k => k.Sorgula());
+            users.ForEach(u =>
+            {
+                u.Read();
+            });
         }
 
-        static void IslemYap(List<IYuksekYetki> kullanicilar)
+        static void Operate(List<IWriteUser> users)
         {
-            kullanicilar.ForEach(k => k.Yetkilendir("TestUser"));
-            // Artık tip kontrolü yapmadan nesnemizi istediğimiz gibi kullanabiliriz
+            users.ForEach(u =>
+            {
+                u.Write(); 
+            });
+
+            // Now we can use Write method without type checking.
+            // It operates over class objects that implement IWriteUser interface.
         }
     }
 }

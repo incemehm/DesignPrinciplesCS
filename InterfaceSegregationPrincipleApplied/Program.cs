@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InterfaceSegregationPrincipleApplied
+﻿namespace InterfaceSegregationPrincipleApplied
 {
     class Program
     {
         static void Main(string[] args)
         {
-            YayliCalgi yayli = new YayliCalgi();
-            UflemeliCalgi uflemeli = new UflemeliCalgi();
-            VurmaliCalgi vurmali = new VurmaliCalgi();
+            Dog dog = new Dog();
+            Fish fish = new Fish();
+            Bird bird = new Bird();
 
-            yayli.Basla();
-            yayli.YayliCal();
-            // yayli.UflemeliCal();   //  Yaylı için tanımsız
-            // yayli.VurmaliCal();    //  Yaylı için tanımsız
+            dog.IsPet();
+            //dog.Fly(); // It's undefined for dog correctly. So you cannot use Fly method for dog and you dont get an exception.
+            dog.Swim();
+            dog.Walk();
 
-            uflemeli.Basla();
-            uflemeli.UflemeliCal();
-            // uflemeli.YayliCal();   //  Üflemeli için tanımsız
-            // uflemeli.VurmaliCal(); //  Üflemeli için tanımsız
+            fish.IsPet();
+            //fish.Fly(); // It's undefined for fish. 
+            fish.Swim();
+            //fish.Walk(); // It's undefined for fish
 
-            vurmali.Basla();
-            vurmali.VurmaliCal();
-            // vurmali.UflemeliCal(); //  Vurmalı için tanımsız
-            // vurmali.YayliCal();    //  Vurmalı için tanımsız
+            bird.IsPet();
+            bird.Fly();
+            //bird.Swim(); // It's undefined for bird
+            bird.Walk(); 
         }
     }
 }

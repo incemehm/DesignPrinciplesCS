@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LiskovSubstitutionPrincipleIncorrect
 {
@@ -10,28 +6,54 @@ namespace LiskovSubstitutionPrincipleIncorrect
     {
         static void Main(string[] args)
         {
-            List<IYetki> kullanicilar = new List<IYetki>
+            List<IUser> users = new List<IUser>
                           {
-                             new Admin(),
-                             new Kullanici(),
-                             new Kullanici()
+                             new AdminUser(),
+                             new StandartUser()
                           };
 
-            Sorgula(kullanicilar);
-            IslemYap(kullanicilar);
+            Query(users);
+            Operate(users);
         }
 
-        static void Sorgula(List<IYetki> kullanicilar)
-        {   
-            kullanicilar.ForEach(k => k.Sorgula());
-        }
-
-        static void IslemYap(List<IYetki> kullanicilar)
+        static void Query(List<IUser> users)
         {
-            //kullanicilar.ForEach(k => k.Yetkilendir("TestUser")); // throw new NotImplementedException();
+            users.ForEach(u =>
+            {
+                u.Read();
+            });
+        }
 
-            kullanicilar.ForEach(k => { if (k is Admin) k.Yetkilendir("TestUser"); });
-            // Nesneye tip kontrolü yapmak ilk akla gelen, fakat hatalı bir çözüm
+        static void Operate(List<IUser> users)
+        {
+            /*
+                users.ForEach(u =>
+                {
+                    u.Write(); // when u is StandartUser, it throws NotImplementedException() 
+                });
+            */
+
+
+            users.ForEach(u =>
+            {
+                try
+                {
+                    if (u is AdminUser)
+                        u.Write();
+                }
+                catch (System.Exception)
+                {
+                }
+            });
+            // Controlling with Try-catch block is the first solution that comes to mind but wrong
+
+            users.ForEach(u =>
+            {
+                if (u is AdminUser)
+                    u.Write();
+            });
+            // Type check is the second solution that comes to mind but wrong too.
+
         }
     }
 }

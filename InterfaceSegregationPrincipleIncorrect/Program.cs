@@ -1,34 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InterfaceSegregationPrincipleIncorrect
+﻿namespace InterfaceSegregationPrincipleIncorrect
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
-            YayliCalgi yayli = new YayliCalgi();
-            UflemeliCalgi uflemeli = new UflemeliCalgi();
-            VurmaliCalgi vurmali = new VurmaliCalgi();
+            Dog dog = new Dog();
+            Fish fish = new Fish();
+            Bird bird = new Bird();
 
-            yayli.Basla();
-            yayli.YayliCal();
-            yayli.UflemeliCal(); // throw new NotImplementedException();
-            yayli.VurmaliCal(); // throw new NotImplementedException();
+            dog.IsPet();
+            dog.Fly();   // It's defined for dog incorrectly. So you can call Fly method for dog and you get a NotImplementedException.
+            dog.Swim();
+            dog.Walk();
 
-            uflemeli.Basla();
-            uflemeli.UflemeliCal();
-            uflemeli.YayliCal(); // throw new NotImplementedException();
-            uflemeli.VurmaliCal(); // throw new NotImplementedException();
+            fish.IsPet();
+            fish.Fly();  // throw new NotImplementedException();
+            fish.Swim();
+            fish.Walk(); // throw new NotImplementedException();
 
-            vurmali.Basla();
-            vurmali.VurmaliCal();
-            vurmali.UflemeliCal(); // throw new NotImplementedException();
-            vurmali.YayliCal(); // throw new NotImplementedException();
+            bird.IsPet();
+            bird.Fly();
+            bird.Swim(); // throw new NotImplementedException();
+            bird.Walk();
         }
     }
 }

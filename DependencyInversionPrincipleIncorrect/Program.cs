@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DependencyInversionPrincipleIncorrect
+﻿namespace DependencyInversionPrincipleIncorrect
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Musluk musluk = new Musluk();
-            PetSise sise = new PetSise();
-            musluk.Doldur(sise, 100);
+            Toy toy = new Toy();
+            ZincCarbonBattery zincCarbonBattery = new ZincCarbonBattery();
+            toy.UseBattery(zincCarbonBattery);
 
-            CamSise camSise = new CamSise();
-            //musluk.Doldur(camSise, 50); 
-            //Cam şişe de doldurmak istiyoruz. 
-            //Derleyici hatası alırız. Musluk sınıfı, PetSise sınıfına sıkı sıkıya bağlı
+            AlcalineBattery alcalineBattery = new AlcalineBattery();
+            //toy.UseBattery(alcalineBattery);
+
+            /*  Want to use alcaline battery?
+             *  We get compiler error. Toy class is tightly coupled to ZincCarbonBattery class
+             *  We have to make some arrangement in Toy class.
+             *  Maybe we might want to add second UseBattery overload method. 
+             *  But we have to touch Toy class. This is undesirable.
+             */
         }
     }
 }

@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A3.cs" />
-    <Compile Include="A4.cs" />
+    <Compile Include="A3Paper.cs" />
+    <Compile Include="A4Paper.cs" />
     <Compile Include="IPaper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

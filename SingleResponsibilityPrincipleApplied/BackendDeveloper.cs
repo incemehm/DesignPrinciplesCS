@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SingleResponsibilityPrincipleApplied
+﻿namespace SingleResponsibilityPrincipleApplied
 {
     public class BackendDeveloper
     {
-        public void DevelopWebPage()
+        public void CreateAPI()
         {
-            Console.WriteLine("Developed a web page");
+            System.Console.WriteLine("Created an API");
         }
     }
 }

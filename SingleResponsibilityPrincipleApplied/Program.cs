@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SingleResponsibilityPrincipleApplied
+﻿namespace SingleResponsibilityPrincipleApplied
 {
     class Program
     {
         static void Main(string[] args)
         {
-            BackendDeveloper developer1 = new BackendDeveloper();
-            developer1.DevelopWebPage();
+            BackendDeveloper backendDeveloper = new BackendDeveloper();
+            backendDeveloper.CreateAPI();
 
-            FrontendDeveloper developer2 = new FrontendDeveloper();
-            developer2.DesignWebPage();
+            FrontendDeveloper frontendDeveloper = new FrontendDeveloper();
+            frontendDeveloper.DesignPage();
+
+            /* It fulfills Single Responsibility principle.
+             * BackendDeveloper does his own job.
+             * FrontendDeveloper does his own job.
+             */
         }
     }
 }

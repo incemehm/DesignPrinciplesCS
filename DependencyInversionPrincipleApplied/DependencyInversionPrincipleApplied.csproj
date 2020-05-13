@@ -41,10 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CamSise.cs" />
-    <Compile Include="ISise.cs" />
-    <Compile Include="Musluk.cs" />
-    <Compile Include="PetSise.cs" />
+    <Compile Include="AlcalineBattery.cs" />
+    <Compile Include="IBattery.cs" />
+    <Compile Include="Toy.cs" />
+    <Compile Include="ZincCarbonBattery.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
