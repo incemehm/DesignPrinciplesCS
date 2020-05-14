@@ -38,8 +38,7 @@ namespace LiskovSubstitutionPrincipleIncorrect
             {
                 try
                 {
-                    if (u is AdminUser)
-                        u.Write();
+                    u.Write();
                 }
                 catch (System.Exception)
                 {

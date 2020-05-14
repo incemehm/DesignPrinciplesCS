@@ -4,7 +4,7 @@
     {
         public void Write()
         {
-            System.Console.WriteLine("A4Paper written.");
+            System.Console.WriteLine("A4Paper's written.");
         }
     }
 }
